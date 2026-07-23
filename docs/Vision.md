@@ -91,6 +91,57 @@ Engineering thinking is the product.
 
 ---
 
+# AI-Native Engineering
+
+Software engineering is changing.
+
+Modern engineering is no longer performed exclusively by humans.
+
+Large Language Models, AI assistants and autonomous agents have become active participants in the engineering process.
+
+QA Forge embraces this shift.
+
+Rather than treating AI as another technology to learn, QA Forge considers AI an integral part of the engineering environment.
+
+Engineering knowledge should be understandable by both humans and machines.
+
+Documentation is no longer written only for future engineers.
+
+It is also written for future AI assistants.
+
+Architecture is no longer only a blueprint for developers.
+
+It is also context for autonomous agents.
+
+Engineering decisions are no longer isolated from implementation.
+
+They become reusable knowledge that AI systems can understand, reason about and apply.
+
+For this reason, QA Forge is not centered around test frameworks.
+
+Test frameworks are only one component of a much larger engineering ecosystem.
+
+The true foundation of QA Forge is its engineering knowledge:
+
+- Vision
+- Architecture
+- Engineering Cases
+- Architectural Decision Records
+- Engineering Standards
+- Reference Implementations
+
+Together they form an AI-native engineering platform where humans and AI agents collaborate using the same shared engineering knowledge.
+
+Technology evolves.
+
+Frameworks evolve.
+
+AI models evolve.
+
+Engineering knowledge remains the most valuable asset.
+
+---
+
 # Our Goal
 
 Our goal is to become the primary reference for engineering thinking within the Quality Engineering community.
