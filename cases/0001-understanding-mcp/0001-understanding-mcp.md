@@ -23,7 +23,27 @@ The accompanying Reference Implementation demonstrates one possible implementati
 
 ---
 
-# Problem
+## Scope
+
+This Engineering Case focuses on understanding the architectural ideas behind MCP.
+
+It does not attempt to provide a complete specification reference.
+
+Topics such as authentication, transports, production deployment and advanced protocol features are intentionally deferred to later Engineering Cases.
+
+---
+
+## Assumptions
+
+This case assumes that the reader:
+
+- understands client-server architecture;
+- is familiar with REST APIs;
+- has basic knowledge of LLMs.
+
+---
+
+## Problem
 
 Large Language Models excel at reasoning but cannot directly interact with external systems.
 
@@ -45,7 +65,7 @@ The challenge is designing a common interface between AI systems and external ca
 
 ---
 
-# Context
+## Context
 
 A typical engineering environment contains many independent systems.
 
@@ -68,13 +88,13 @@ As the ecosystem grows, integration complexity increases.
 
 ---
 
-# Engineering Question
+## Engineering Question
 
 Can a single protocol standardize communication between AI systems and engineering tools without requiring the language model to understand every individual API?
 
 ---
 
-# Traditional Approach
+## Traditional Approach
 
 ```
 LLM
@@ -93,7 +113,7 @@ Adding new systems requires additional custom engineering work.
 
 ---
 
-# MCP Approach
+## MCP Approach
 
 ```
                 +-------------------+
@@ -119,7 +139,7 @@ Business logic remains outside the model.
 
 ---
 
-# Why This Case?
+## Why This Case?
 
 This case is not about learning another technology.
 
@@ -131,7 +151,7 @@ The engineering ideas behind it are considerably more important than the amount 
 
 ---
 
-# Hypothesis
+## Hypothesis
 
 If AI systems communicate through a standard protocol,
 
@@ -144,7 +164,29 @@ then engineers can:
 
 ---
 
-# Decision
+## Alternatives Considered
+
+Alternative 1
+
+Read the specification first.
+
+Rejected because...
+
+Alternative 2
+
+Study existing implementations.
+
+Rejected because...
+
+Alternative 3
+
+Build first.
+
+Selected because...
+
+---
+
+## Decision
 
 Instead of starting with the MCP specification,
 
@@ -163,7 +205,15 @@ The specification will be studied afterwards.
 
 ---
 
-# Reference Implementation
+## Risks
+
+Building a minimal implementation first may produce incomplete understanding of the protocol.
+
+This risk is accepted because the objective is architectural understanding rather than protocol completeness.
+
+---
+
+## Reference Implementation
 
 ```
 reference-implementations/
@@ -176,7 +226,7 @@ The implementation intentionally contains only the minimum functionality require
 
 ---
 
-# Expected Learning Outcomes
+## Expected Learning Outcomes
 
 After completing this Engineering Case, the reader should understand:
 
@@ -190,7 +240,7 @@ After completing this Engineering Case, the reader should understand:
 
 ---
 
-# Related Documents
+## Related Documents
 
 - `docs/Vision.md`
 - `docs/Architecture.md`
@@ -201,13 +251,48 @@ Reference Implementation:
 
 ---
 
-# Lessons Learned
+## Knowledge Produced
 
-_To be completed after the implementation is finished._
+This Engineering Case contributes to the QA Forge Knowledge Layer.
+
+Artifacts produced by this case may later be consumed by:
+
+- future Engineering Cases;
+- Architectural Decision Records;
+- Reference Implementations;
+- AI assistants;
+- autonomous engineering agents.
 
 ---
 
-# Review Status
+## Lessons Learned
+
+Building the smallest possible MCP server proved to be an effective way to understand the protocol.
+
+The implementation confirmed several architectural observations:
+
+- MCP is fundamentally an RPC-style protocol rather than a REST API.
+- A language model interacts with capabilities instead of directly accessing external systems.
+- The protocol clearly separates client and server responsibilities.
+- FastMCP significantly reduces implementation complexity by hiding protocol details.
+- Understanding the protocol becomes considerably easier when observing an actual running implementation before reading the full specification.
+
+The implementation also demonstrated that practical experimentation often reveals engineering details that are not immediately obvious from documentation alone.
+
+---
+
+## Validation
+
+This Engineering Case will be considered successful if:
+
+- the minimal implementation works;
+- protocol flow is understood;
+- architectural responsibilities are clearly identified;
+- follow-up Engineering Cases can build upon these findings.
+
+---
+
+## Review Status
 
 This Engineering Case is expected to evolve.
 
