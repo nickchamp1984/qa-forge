@@ -40,6 +40,21 @@ Lower layers should never redefine concepts established above them.
 
 ---
 
+# Target Architecture
+
+The long-term architecture of QA Forge consists of two major parts:
+
+- Core
+- Extensions
+
+Core contains stable engineering capabilities.
+
+Extensions integrate external engineering platforms and technologies.
+
+This separation allows the platform to evolve without introducing unnecessary coupling between engineering knowledge and technology-specific integrations.
+
+---
+
 # Layer Responsibilities
 
 ## Vision

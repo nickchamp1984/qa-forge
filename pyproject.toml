@@ -1,0 +1,11 @@
+[project]
+name = "qa-forge"
+version = "0.2.0"
+description = "AI-native engineering platform for QA engineers."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
