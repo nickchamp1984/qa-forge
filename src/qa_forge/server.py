@@ -1,12 +1,12 @@
 from mcp.server.fastmcp import FastMCP
+from qa_forge.tools.health import hello, ping
 
 mcp = FastMCP("QA Forge")
 
-# register tools
-@mcp.tool()
-def hello() -> str:
-    """Simple connectivity test."""
-    return "Hello from QA Forge!"
+# Register tools.
+mcp.tool()(hello)
+mcp.tool()(ping)
+
 
 def main():
     mcp.run()
