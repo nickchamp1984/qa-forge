@@ -1,12 +1,12 @@
 # Roadmap
 
-**Status:** Draft v0.1
+**Status:** Draft v0.2
 
 > This document describes the long-term evolution of QA Forge.
 >
-> It defines major engineering directions rather than implementation details.
+> It defines strategic engineering milestones rather than implementation details.
 >
-> The roadmap is expected to evolve together with the platform.
+> The roadmap evolves together with the platform and reflects its architectural direction.
 
 ---
 
@@ -14,47 +14,65 @@
 
 QA Forge evolves incrementally.
 
-Every release should deliver a meaningful engineering improvement.
+Every release should introduce a meaningful engineering capability.
 
-Every Epic should move the platform towards its long-term vision.
+Every Epic should move the platform closer to its long-term vision of becoming an AI-native engineering knowledge platform.
 
-The roadmap is a planning artifact rather than a strict commitment.
+The roadmap is a planning artifact rather than a fixed commitment.
 
 ---
 
 # Product Strategy
 
-QA Forge evolves in two stages.
+QA Forge evolves through three major stages.
 
-## Stage 1 — Stable Core
+## Stage 1 — Knowledge Foundation
 
-The first major milestone is the creation of a stable engineering platform.
+The first milestone is creating a stable Engineering Knowledge Layer.
 
-The Core includes:
+The Foundation includes:
 
-- Engineering Knowledge Base
-- MCP Server
-- Repository Services
-- Documentation Services
-- Review Engine
+- Engineering Documentation
+- Knowledge Extraction
+- Canonical Knowledge Model
+- Knowledge Store
+- Knowledge API
 
-Version 1.0 represents the completion of the Core.
+This stage establishes engineering knowledge as the central asset of the platform.
 
 ---
 
-## Stage 2 — Engineering Ecosystem
+## Stage 2 — Engineering Services
 
-After the Core becomes stable, QA Forge expands through extensions.
-
-Extensions integrate external engineering platforms while preserving the stability of the Core.
+Once the Knowledge Layer becomes stable, QA Forge introduces engineering services that consume the shared knowledge.
 
 Examples include:
 
+- Repository Navigation
+- Engineering Review
+- Documentation Services
+- Architecture Review
+- AI Context Generation
+
+All services consume the same engineering knowledge.
+
+---
+
+## Stage 3 — Engineering Ecosystem
+
+The final stage expands QA Forge through integrations and community contributions.
+
+Examples include:
+
+- MCP
 - GitHub
-- Playwright
 - Jira
 - TestRail
-- Programming language toolkits
+- Programming Language Toolkits
+- IDE Extensions
+- Community Packages
+
+Integrations extend the platform without changing the Core.
 
 ---
 
@@ -62,15 +80,13 @@ Examples include:
 
 QA Forge follows Semantic Versioning.
 
-Major versions represent significant milestones in the platform's maturity.
+Major versions represent significant architectural milestones.
 
-Minor versions introduce new engineering capabilities or architectural modules.
+Minor versions introduce new engineering capabilities.
 
-Patch versions deliver incremental improvements within existing capabilities.
+Patch versions improve existing capabilities without changing the architecture.
 
-An Epic may contain multiple releases.
-
-Releases are driven by completed engineering increments rather than Epic boundaries.
+Engineering milestones are more important than release dates.
 
 ---
 
@@ -82,132 +98,178 @@ Completed:
 
 - Vision
 - Architecture
+- Roadmap
+- ADR Framework
+- Architectural Decision Records
 - Documentation conventions
-- Engineering Case #0001
-- Reference Implementation #001
-- Understanding MCP
 - Initial repository structure
+- Initial engineering direction
 
 ---
 
 # Current Milestone
 
-## Epic 3 — Building QA Forge MCP Server
+## Epic 3 — Knowledge Layer
 
 Objective:
 
-Build the engineering platform that will power QA Forge.
+Build the Engineering Knowledge Layer that becomes the foundation of the entire platform.
 
-The MCP Server will become the primary interface between AI systems and QA Forge engineering knowledge.
-
----
-
-## Planned Releases
-
-### v0.2.0
-
-QA Forge MCP Skeleton
-
-Initial MCP Server with basic tools.
+The goal is to transform engineering artifacts into structured knowledge that can be reused by humans and AI alike.
 
 ---
 
-### v0.2.1
+# Planned Releases
 
-Documents API
+## v0.2.0
 
-Access to QA Forge documentation.
+Knowledge Model
+
+Deliverables:
+
+- Canonical Knowledge Model
+- Core Entities
+- Core Relations
+- Initial architecture
 
 ---
 
-### v0.2.2
+## v0.2.1
+
+Knowledge Extraction
+
+Deliverables:
+
+- Markdown Extractor
+- Vision Extractor
+- ADR Extractor
+- Architecture Extractor
+
+---
+
+## v0.2.2
+
+Knowledge Store
+
+Deliverables:
+
+- Internal representation
+- Persistence layer
+- Repository indexing
+- Knowledge serialization
+
+---
+
+## v0.3.x
 
 Knowledge API
 
-Engineering Cases
+Deliverables:
 
-Reference Implementations
-
-Repository knowledge.
-
----
-
-### v0.3.x
-
-Repository Services
-
-Repository navigation
-
-Validation
-
-Engineering review
+- Query API
+- Search
+- Entity navigation
+- Relationship traversal
 
 ---
 
-### v0.4.x
+## v0.4.x
 
-Git Integration
+Engineering Services
 
-Repository history
+Deliverables:
 
-Releases
-
-Tags
-
----
-
-### v0.5.x
-
-GitHub Integration
-
-GitHub API
-
-Issues
-
-Pull Requests
-
-Releases
+- Documentation Review
+- Architecture Review
+- Repository Review
+- Knowledge Validation
 
 ---
 
-### v0.6.x
+## v0.5.x
 
-AI Engineering Services
+MCP Adapter
 
-Engineering Review
+Deliverables:
 
-Architecture Review
+- MCP Server
+- MCP Tools
+- AI Context API
+- AI Repository Navigation
 
-Release Assistant
+At this stage MCP becomes one of several clients of the Knowledge API.
 
-Documentation Assistant
+---
+
+## v0.6.x
+
+Repository Integrations
+
+Examples:
+
+- GitHub
+- Git
+- Playwright
+- Java
+- Python
+- Spring
+
+These integrations enrich the Knowledge Layer without modifying its architecture.
+
+---
+
+## v0.7.x
+
+AI Engineering
+
+Deliverables:
+
+- AI Engineering Assistant
+- Architecture Reasoning
+- Engineering Recommendations
+- Decision Support
+- Repository Intelligence
 
 ---
 
 # Long-Term Vision
 
-QA Forge is evolving from a documentation repository into an AI-native engineering platform.
+QA Forge evolves from a documentation repository into an Engineering Knowledge Platform.
 
-The platform will combine:
+Engineering knowledge is extracted once.
 
-- Engineering knowledge
-- Reference implementations
-- AI tooling
-- MCP services
+It is represented using a canonical model.
 
-to support engineers and AI systems working together.
+Every engineering service, AI assistant and integration consumes the same shared knowledge.
+
+Knowledge becomes the stable foundation.
+
+Technologies become interchangeable adapters.
+
+---
+
+# Success Criteria
+
+The roadmap is successful when:
+
+- Engineering knowledge is independent of repository structure.
+- New technologies integrate without changing the Core.
+- AI systems consume the same engineering knowledge as humans.
+- Engineering decisions become reusable assets.
+- Repository intelligence is generated rather than manually recreated.
 
 ---
 
 # Roadmap Review
 
-This roadmap should be reviewed after every significant release.
+This roadmap should be reviewed after every major milestone.
 
-Questions for review:
+Review questions:
 
 - Does the roadmap still support the Vision?
-- Are current priorities still aligned with the Architecture?
-- Should future milestones be adjusted?
-- Has a new engineering direction emerged?
+- Does it remain aligned with the Architecture?
+- Has a new architectural capability emerged?
+- Should priorities change?
+- Are engineering knowledge and reasoning still the platform's primary focus?
 
-Roadmap is considered an evolving engineering artifact.
+The roadmap is considered a living engineering artifact.

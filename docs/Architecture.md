@@ -1,10 +1,12 @@
 # Architecture
 
-**Status:** Draft v0.1
+**Status:** Draft v0.2
 
 > This document describes the architectural structure of QA Forge.
 >
-> It focuses on the responsibilities of each component rather than implementation details.
+> It defines the stable architectural concepts that shape the platform and explains how engineering knowledge flows through the system.
+>
+> Implementation details are intentionally omitted.
 >
 > The architecture is expected to evolve together with the platform.
 
@@ -12,15 +14,19 @@
 
 # Architectural Philosophy
 
-QA Forge is designed as a knowledge platform rather than a software framework.
+QA Forge is designed as an engineering knowledge platform.
 
-Its architecture reflects the process of engineering learning.
+Its primary purpose is not to execute engineering tasks but to capture, organize and expose engineering knowledge in a form that can be understood by both humans and AI systems.
 
-Every component exists to answer a different engineering question.
+Every architectural component exists to answer a different engineering question.
+
+Engineering knowledge is considered the primary architectural asset.
 
 ---
 
 # Architectural Layers
+
+QA Forge separates engineering concerns into distinct conceptual layers.
 
 ```
 Vision
@@ -38,151 +44,238 @@ Each layer builds upon the previous one.
 
 Lower layers should never redefine concepts established above them.
 
----
-
-# Target Architecture
-
-The long-term architecture of QA Forge consists of two major parts:
-
-- Core
-- Extensions
-
-Core contains stable engineering capabilities.
-
-Extensions integrate external engineering platforms and technologies.
-
-This separation allows the platform to evolve without introducing unnecessary coupling between engineering knowledge and technology-specific integrations.
+Instead, they demonstrate and refine them.
 
 ---
 
-# Layer Responsibilities
+# Runtime Architecture
 
-## Vision
+The runtime architecture follows the flow of engineering knowledge.
 
-Defines why QA Forge exists.
+```
+Repository
+        ↓
+Knowledge Extraction
+        ↓
+Canonical Knowledge Model
+        ↓
+Knowledge Store
+        ↓
+Knowledge API
+        ↓
+Clients
+```
 
-Answers:
+Engineering knowledge is extracted once.
 
-- Why are we building this platform?
-- What problem does it solve?
-- What values guide the project?
+Every consumer reuses the same knowledge.
 
----
+Clients may include:
 
-## Architecture
+- AI assistants
+- MCP servers
+- Documentation tools
+- Engineering reviews
+- Future integrations
 
-Defines the structure of the platform.
-
-Answers:
-
-- What components exist?
-- What responsibilities does each component have?
-- How do they interact?
-
----
-
-## Engineering Models
-
-Engineering Models describe reusable ways of thinking.
-
-They are technology-independent.
-
-Examples include:
-
-- Decision models
-- Risk models
-- Testing models
-- Architecture models
-- Process models
-
-Models answer:
-
-> How should engineers think?
+The architecture intentionally separates engineering knowledge from the protocols used to access it.
 
 ---
 
-## Engineering Cases
+# Architectural Principles
 
-Cases analyse real engineering situations.
+## Knowledge First
 
-Unlike models, they are contextual.
+Engineering knowledge is the primary architectural asset.
 
-Cases explain:
-
-- the problem
-- the context
-- available options
-- trade-offs
-- final decision
-- lessons learned
-
-Cases answer:
-
-> Why was this engineering decision made?
-
----
-
-## Reference Implementations
-
-Reference Implementations demonstrate one possible implementation of engineering ideas.
-
-They are not tutorials.
-
-They are not production frameworks.
-
-They exist to illustrate architectural concepts.
-
-Reference Implementations answer:
-
-> What could this look like in practice?
-
----
-
-# Documentation
-
-Documentation exists to explain the platform.
-
-Documentation is not the product.
-
-The product consists of:
-
-- Engineering Models
-- Engineering Cases
-- Reference Implementations
-
-Documentation simply explains how they fit together.
-
----
-
-# Design Principles
-
-The platform follows several core principles.
-
-## Engineering First
-
-Engineering principles are more important than technologies.
+Repositories, programming languages, AI models and communication protocols are interchangeable interfaces around that knowledge.
 
 ---
 
 ## Technology Agnostic
 
-Engineering knowledge should remain valuable even when technologies change.
+Engineering knowledge should remain valuable even when technologies evolve.
+
+No architectural decision should depend on a specific programming language, framework or AI provider.
 
 ---
 
-## Incremental Learning
+## Separation of Concerns
 
-Each new concept should introduce only one major idea.
+The platform separates:
 
-Complexity grows gradually.
+- Knowledge extraction
+- Knowledge representation
+- Knowledge storage
+- Knowledge access
+- Client integrations
+
+Each component has a single architectural responsibility.
 
 ---
 
-## Reference over Perfection
+## Incremental Evolution
 
-Reference Implementations are educational.
+Architecture is expected to evolve.
 
-They intentionally favour clarity over completeness.
+Large architectural changes should be documented through Architectural Decision Records (ADRs).
+
+---
+
+# Core Components
+
+## Repository
+
+Contains engineering artifacts.
+
+Examples:
+
+- Vision
+- Architecture
+- ADRs
+- Engineering Models
+- Engineering Cases
+- Standards
+- Reference Implementations
+- Source Code
+
+The repository is the source of engineering knowledge.
+
+---
+
+## Knowledge Extraction
+
+Extractors convert engineering artifacts into structured knowledge.
+
+Extractors are technology-specific.
+
+Examples include:
+
+- Markdown Extractor
+- Java Extractor
+- Python Extractor
+- Spring Extractor
+- GitHub Extractor
+
+Extractors should never contain engineering business logic.
+
+Their only responsibility is translating artifacts into the canonical knowledge model.
+
+---
+
+## Canonical Knowledge Model
+
+The Canonical Knowledge Model represents engineering knowledge independently from its source.
+
+Typical concepts include:
+
+- Entity
+- Relation
+- Decision
+- Constraint
+- Standard
+- Pattern
+- Risk
+- Dependency
+- Component
+
+Every extractor produces the same model.
+
+---
+
+## Knowledge Store
+
+The Knowledge Store contains normalized engineering knowledge.
+
+It enables consistent reasoning regardless of where the knowledge originated.
+
+The storage implementation may evolve without affecting higher architectural layers.
+
+---
+
+## Knowledge API
+
+The Knowledge API exposes engineering knowledge to clients.
+
+Examples include:
+
+- MCP
+- REST
+- GraphQL
+- CLI
+- Future interfaces
+
+The API should expose knowledge rather than implementation details.
+
+---
+
+## Clients
+
+Clients consume engineering knowledge.
+
+Examples include:
+
+- AI Assistants
+- IDE Extensions
+- Documentation Tools
+- Review Engines
+- Future Engineering Platforms
+
+Clients should never need to understand repository internals.
+
+---
+
+# Documentation
+
+Documentation explains the platform.
+
+Documentation itself is part of the engineering knowledge.
+
+Documents describe:
+
+- Vision
+- Architecture
+- Decisions
+- Models
+- Standards
+
+Together they provide the context required to understand the platform.
+
+---
+
+# Design Principles
+
+The platform follows several guiding principles.
+
+## Engineering Before Technology
+
+Engineering principles outlive technologies.
+
+Technology serves engineering rather than defining it.
+
+---
+
+## Single Source of Truth
+
+Engineering knowledge should exist once.
+
+Multiple clients should consume the same knowledge instead of rebuilding context independently.
+
+---
+
+## Reusable Knowledge
+
+Engineering decisions should become reusable artifacts.
+
+Knowledge created for one repository should be applicable elsewhere whenever possible.
+
+---
+
+## Explainability
+
+Every architectural decision should be understandable.
+
+The platform should optimize for reasoning rather than complexity.
 
 ---
 
@@ -190,36 +283,35 @@ They intentionally favour clarity over completeness.
 
 Architecture is expected to evolve.
 
-Major architectural decisions should be documented using ADRs.
+Major architectural changes should be documented using ADRs.
 
 ---
 
 # Future Architecture
 
-The architecture intentionally leaves room for future extensions.
+Future architectural evolution may include:
 
-Potential additions include:
+- Knowledge Graphs
+- Engineering Ontologies
+- AI Reasoning Engines
+- Distributed Knowledge Stores
+- Repository Federation
+- Engineering Analytics
 
-- AI Engineering
-- MCP Reference Implementations
-- Quality Engineering Patterns
-- Engineering Exercises
-- Community Contributions
-
-Future extensions should preserve the architectural philosophy described above.
+Future additions should preserve the architectural principles defined in this document.
 
 ---
 
 # Architecture Review
 
-This document should be reviewed after every major milestone.
+This document should be reviewed after every significant architectural milestone.
 
-Questions for review:
+Review questions:
 
-- Does the current architecture still reflect the Vision?
+- Does the architecture still reflect the Vision?
+- Is engineering knowledge still the architectural center?
 - Are responsibilities clearly separated?
-- Has any component become overloaded?
-- Should a new architectural layer be introduced?
-- Does every repository still fit the architectural model?
+- Can new technologies be integrated without changing the Core?
+- Does every repository still contribute to the shared knowledge model?
 
-Architecture is considered an evolving engineering artifact.
+Architecture is considered a living engineering artifact.
